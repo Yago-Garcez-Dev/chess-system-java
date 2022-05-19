@@ -44,7 +44,7 @@ public class UI {
 			int row = Integer.parseInt(s.substring(1));
 			return new ChessPosition(column, row);
 		} catch (RuntimeException e) {
-			throw new InputMismatchException("Erro ao ler posição. Valores válidos são de a1 até h8");
+			throw new InputMismatchException("Erro ao ler posição. Valores válidos são de a1 até h8.");
 		}
 	}
 
@@ -53,8 +53,11 @@ public class UI {
 		System.out.println();
 		printCapturedPieces(captured);
 		System.out.println();
-		System.out.println("Turn: " + chessMatch.getTurn());
+		System.out.println("Turno: " + chessMatch.getTurn());
 		System.out.println("Aguardando o jogador: " + chessMatch.getCurrentPlayer());
+		if (chessMatch.getCheck()) {
+			System.out.println("Cheque!");
+		}
 	}
 
 	public static void printBoard(ChessPiece[][] pieces) {
